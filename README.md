@@ -4,9 +4,12 @@ This project is an Instagram clone made in Laravel and TailwindCSS.
 
 **Instructions:**
 
-1. Run Laravel with `./vendor/bin/sail up`
-2. Run TailwindCSS with `npm run dev`
-3. Open a browser and go to `localhost`
+1. You need to have installed Docker
+2. Start the Laravel containers with `./vendor/bin/sail up`
+3. Execute `./vendor/bin/sail artisan migrate` to create the tables in the database
+4. Execute `npm install` to build the JavaScript dependencies
+5. Run TailwindCSS with `npm run dev`
+6. Open a browser and go to `localhost`
 
 #
 
