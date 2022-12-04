@@ -7,15 +7,25 @@
 @section('content')
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
         <div class="md:w-6/12 p-5">
-            <img src="{{ asset('img/register.jpg') }}" alt="User Register">
+            <img
+                src="{{ asset('img/register.jpg') }}"
+                alt="User Register"
+            />
         </div>
 
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
-            <form action="{{ route('register') }}" method="POST" novalidate>
+            <form
+                action="{{ route('register') }}"
+                method="POST"
+                novalidate
+            >
                 @csrf
 
                 <div class="mb-5">
-                    <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label
+                        for="name"
+                        class="mb-2 block uppercase text-gray-500 font-bold"
+                    >
                         Name
                     </label>
 
@@ -36,7 +46,10 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label
+                        for="username"
+                        class="mb-2 block uppercase text-gray-500 font-bold"
+                    >
                         Username
                     </label>
 
@@ -57,7 +70,10 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label
+                        for="email"
+                        class="mb-2 block uppercase text-gray-500 font-bold"
+                    >
                         Email
                     </label>
 
@@ -78,7 +94,10 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label
+                        for="password"
+                        class="mb-2 block uppercase text-gray-500 font-bold"
+                    >
                         Password
                     </label>
 
@@ -98,7 +117,10 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="password_confirmation" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label
+                        for="password_confirmation"
+                        class="mb-2 block uppercase text-gray-500 font-bold"
+                    >
                         Password Confirmation
                     </label>
 

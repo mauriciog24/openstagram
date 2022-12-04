@@ -23,6 +23,6 @@ class LoginController extends Controller
             return back()->with('message', 'Bad credentials');
         }
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index', auth()->user()->username);
     }
 }

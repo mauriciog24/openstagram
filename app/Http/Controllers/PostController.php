@@ -18,4 +18,27 @@ class PostController extends Controller
             'user' => $user,
         ]);
     }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'image' => 'required',
+        ]);
+
+        $request->user()->posts()->create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $request->image,
+            'user_id' => auth()->user()->id,
+        ]);
+
+        return redirect()->route('posts.index', auth()->user()->username);
+    }
 }
