@@ -40,18 +40,18 @@
                 </div>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold mt-5">
-                    0
+                    {{ $user->followers->count() }}
 
                     <span class="font-normal">
-                        Followers
+                        @choice('Follower|Followers', $user->followers->count())
                     </span>
                 </p>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    0
+                    {{ $user->followings->count() }}
 
                     <span class="font-normal">
-                        Following
+                       Following
                     </span>
                 </p>
 
@@ -62,6 +62,39 @@
                         Posts
                     </span>
                 </p>
+
+                @auth
+                    @if ($user->id !== auth()->user()->id)
+                        @if ($user->following(auth()->user()))
+                            <form
+                                action="{{ route('users.unfollow', $user) }}"
+                                method="POST"
+                            >
+                                @method('DELETE')
+                                @csrf
+
+                                <input
+                                    type="submit"
+                                    value="Unfollow"
+                                    class="bg-red-600 text-white uppercase rounded-lg px-3 py-1 text-xs font-bold cursor-pointer"
+                                />
+                            </form>
+                        @else
+                            <form
+                                action="{{ route('users.follow', $user) }}"
+                                method="POST"
+                            >
+                                @csrf
+
+                                <input
+                                    type="submit"
+                                    value="Follow"
+                                    class="bg-blue-600 text-white uppercase rounded-lg px-3 py-1 text-xs font-bold cursor-pointer"
+                                />
+                            </form>
+                        @endif
+                    @endif
+                @endauth
             </div>
         </div>
     </div>
