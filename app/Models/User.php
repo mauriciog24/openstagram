@@ -45,27 +45,31 @@ class User extends Authenticatable
 
     public function posts()
     {
+        // Returns the Posts associated with an User
         return $this->hasMany(Post::class);
     }
 
     public function likes()
     {
+        // Returns the Likes associated with a User
         return $this->hasMany(Like::class);
     }
 
     public function followers()
     {
+        // Returns the Followers associated with a User
         return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
     }
 
     public function followings()
     {
+        // Returns the Followings associated with a User
         return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
-
     }
 
     public function following(User $user)
     {
+        // Check if a specific User already follows another User
         return $this->followers->contains($user->id);
     }
 }

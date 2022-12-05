@@ -9,6 +9,7 @@ class FollowerController extends Controller
 {
     public function store(User $user)
     {
+        // Follow specified User
         $user->followers()->attach(auth()->user()->id);
 
         return back();
@@ -16,6 +17,7 @@ class FollowerController extends Controller
 
     public function destroy(User $user)
     {
+        // Unfollow specified User
         $user->followers()->detach(auth()->user()->id);
 
         return back();

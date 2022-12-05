@@ -11,6 +11,7 @@ if (document.querySelector('#dropzone')) {
         uploadMultiple: false,
 
         init: function() {
+            // Show the previous image after the page load
             if (document.querySelector('[name="image"]').value.trim()) {
                 const uploadedImage = {};
 
@@ -26,10 +27,12 @@ if (document.querySelector('#dropzone')) {
     });
 
     dropzone.on('success', (file, response) => {
+        // When upload an image
         document.querySelector('[name="image"]').value = response.image;
     });
 
     dropzone.on('removedfile', () => {
+        // When remove the image
         document.querySelector('[name="image"]').value = '';
     });
 }

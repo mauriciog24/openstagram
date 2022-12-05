@@ -1,18 +1,20 @@
 @extends('layouts.app')
 
 @section('title')
-    Login on PirateStagram
+    Login on OpenStagram
 @endsection
 
 @section('content')
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
+        {{-- User Login image --}}
         <div class="md:w-6/12 p-5">
             <img
                 src="{{ asset('img/login.jpg') }}"
-                alt="User Login"
+                alt="User Login image"
             />
         </div>
 
+        {{-- Login form --}}
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
             <form
                 action="{{ route('login') }}"
@@ -21,12 +23,14 @@
             >
                 @csrf
 
+                {{-- Failed Login message --}}
                 @if (session('message'))
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                         {{ session('message') }}
                     </p>
                 @endif
 
+                {{-- Email field --}}
                 <div class="mb-5">
                     <label
                         for="email"
@@ -51,6 +55,7 @@
                     @enderror
                 </div>
 
+                {{-- Password field --}}
                 <div class="mb-5">
                     <label
                         for="password"
@@ -74,6 +79,7 @@
                     @enderror
                 </div>
 
+                {{-- Remember Me checkbox --}}
                 <div class="mb-5">
                     <input
                         type="checkbox"
@@ -85,10 +91,11 @@
                         for="remember"
                         class="text-gray-500 text-sm"
                     >
-                        Keep me signed
+                        Remember Me
                     </label>
                 </div>
 
+                {{-- Submit button --}}
                 <input
                     type="submit"
                     value="Login"

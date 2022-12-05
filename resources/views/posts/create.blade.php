@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @push('styles')
+    {{-- Dropzone styles --}}
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 @endpush
 
@@ -10,6 +11,7 @@
 
 @section('content')
     <div class="md:flex md:items-center">
+        {{-- Dropzone for upload Post image --}}
         <div class="md:w-1/2 px-10">
             <form
                 action="{{ route('images.store') }}"
@@ -22,6 +24,7 @@
             </form>
         </div>
 
+        {{-- Post form --}}
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">
             <form
                 action="{{ route('posts.store') }}"
@@ -30,6 +33,7 @@
             >
                 @csrf
 
+                {{-- Title field --}}
                 <div class="mb-5">
                     <label
                         for="title"
@@ -54,6 +58,7 @@
                     @enderror
                 </div>
 
+                {{-- Description field --}}
                 <div class="mb-5">
                     <label
                         for="description"
@@ -76,6 +81,7 @@
                     @enderror
                 </div>
 
+                {{-- Hidden Image field --}}
                 <div class="mb-5">
                     <input
                         name="image"
@@ -90,6 +96,7 @@
                     @enderror
                 </div>
 
+                {{-- Submit button --}}
                 <input
                     type="submit"
                     value="Create Post"

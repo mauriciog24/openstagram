@@ -7,6 +7,7 @@
 @section('content')
     <div class="container mx-auto md:flex">
         <div class="md:w-1/2">
+            {{-- Post image --}}
             <img
                 src="{{ asset('uploads') . '/' . $post->image }}"
                 alt="{{ $post->title }} - post image"
@@ -15,6 +16,7 @@
             <div class="p-3 flex items-center gap-4">
                 @auth
                     @if ($post->checkLike(auth()->user()))
+                        {{-- Unlike button --}}
                         <form
                             action="{{ route('posts.likes.destroy', $post) }}"
                             method="POST"
@@ -31,6 +33,7 @@
                             </div>
                         </form>
                     @else
+                        {{-- Like button --}}
                         <form
                             action="{{ route('posts.likes.store', $post) }}"
                             method="POST"
@@ -48,6 +51,7 @@
                     @endif
                 @endauth
 
+                {{-- Post Likes count --}}
                 <p class="font-bold">
                     {{ $post->likes->count() }}
 
@@ -58,19 +62,23 @@
             </div>
 
             <div>
+                {{-- Post's User --}}
                 <p class="font-bold">
                     {{ $post->user->username }}
                 </p>
 
+                {{-- Post date --}}
                 <p class="text-sm text-gray-500">
                     {{ $post->created_at->diffForHumans() }}
                 </p>
 
+                {{-- Post description --}}
                 <p class="mt-5">
                     {{ $post->description }}
                 </p>
 
                 @auth
+                    {{-- Delete Post button --}}
                     @if ($post->user_id === auth()->user()->id)
                         <form
                             action="{{ route('posts.destroy', $post) }}"
@@ -90,6 +98,7 @@
             </div>
         </div>
 
+        {{-- Comments section --}}
         <div class="md:w-1/2 p-5">
             <div class="shadow bg-white p-5 mb-5">
                 @auth
@@ -97,18 +106,21 @@
                         Add a Comment
                     </p>
 
+                    {{-- Successful Comment message --}}
                     @if (session('message'))
                         <div class="bg-green-500 p-2 rounded-lg mb-6 text-white text-center uppercase font-bold">
                             {{ session('message') }}
                         </div>
                     @endif
 
+                    {{-- Comment form --}}
                     <form
                         action="{{ route('comments.store', ['post' => $post, 'user' => $user]) }}"
                         method="POST"
                     >
                         @csrf
 
+                        {{-- Comment textarea --}}
                         <div class="mb-5">
                             <label
                                 for="comment"
@@ -131,6 +143,7 @@
                             @enderror
                         </div>
 
+                        {{-- Submit button --}}
                         <input
                             type="submit"
                             value="Comment"
@@ -139,10 +152,12 @@
                     </form>
                 @endauth
 
+                {{-- All Post Comments --}}
                 <div class="bg-white shadow mb-5 max-h-96 overflow-y-scroll mt-10">
                     @if ($post->comments->count())
                         @foreach ($post->comments as $comment)
                             <div class="p-5 border-gray-300 border-b">
+                                {{-- Comment's User --}}
                                 <a
                                     href="{{ route('posts.index', $comment->user) }}"
                                     class="font-bold"
@@ -150,10 +165,12 @@
                                     {{ $comment->user->username }}
                                 </a>
 
+                                {{-- Comment text --}}
                                 <p>
                                     {{ $comment->comment }}
                                 </p>
 
+                                {{-- Comment date --}}
                                 <p class="text-sm text-gray-500">
                                     {{ $comment->created_at->diffForHumans() }}
                                 </p>

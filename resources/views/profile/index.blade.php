@@ -7,6 +7,7 @@
 @section('content')
     <div class="md:flex md:justify-center">
         <div class="md:w-1/2 bg-white shadow p-6">
+            {{-- Edit profile form --}}
             <form
                 action="{{ route('profile.store') }}"
                 method="POST"
@@ -15,6 +16,7 @@
             >
                 @csrf
 
+                {{-- Username field --}}
                 <div class="mb-5">
                     <label
                         for="username"
@@ -39,6 +41,7 @@
                     @enderror
                 </div>
 
+                {{-- Image field --}}
                 <div class="mb-5">
                     <label
                         for="image"
@@ -56,6 +59,7 @@
                     />
                 </div>
 
+                {{-- Submit button --}}
                 <input
                     type="submit"
                     value="Edit Profile"

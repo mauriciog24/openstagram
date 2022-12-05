@@ -1,18 +1,20 @@
 @extends('layouts.app')
 
 @section('title')
-    Register on PirateStagram
+    Register on OpenStagram
 @endsection
 
 @section('content')
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
+        {{-- User Register image --}}
         <div class="md:w-6/12 p-5">
             <img
                 src="{{ asset('img/register.jpg') }}"
-                alt="User Register"
+                alt="User Register image"
             />
         </div>
 
+        {{-- Register form --}}
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
             <form
                 action="{{ route('register') }}"
@@ -21,6 +23,7 @@
             >
                 @csrf
 
+                {{-- Name field --}}
                 <div class="mb-5">
                     <label
                         for="name"
@@ -45,6 +48,7 @@
                     @enderror
                 </div>
 
+                {{-- Username field --}}
                 <div class="mb-5">
                     <label
                         for="username"
@@ -69,6 +73,7 @@
                     @enderror
                 </div>
 
+                {{-- Email field --}}
                 <div class="mb-5">
                     <label
                         for="email"
@@ -93,6 +98,7 @@
                     @enderror
                 </div>
 
+                {{-- Password field --}}
                 <div class="mb-5">
                     <label
                         for="password"
@@ -116,6 +122,7 @@
                     @enderror
                 </div>
 
+                {{-- Password Confirmation field --}}
                 <div class="mb-5">
                     <label
                         for="password_confirmation"
@@ -133,6 +140,7 @@
                     />
                 </div>
 
+                {{-- Submit button --}}
                 <input
                     type="submit"
                     value="Register"
