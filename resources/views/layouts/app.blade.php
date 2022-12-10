@@ -9,6 +9,7 @@
         @stack('styles')
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
+        @livewireStyles
     </head>
 
     {{-- Global base page --}}
@@ -105,5 +106,7 @@
         <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase">
             OpenStagram - All rights reserved {{ now()->year }}
         </footer>
+
+        @livewireScripts
     </body>
 </html>
