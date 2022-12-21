@@ -1,6 +1,6 @@
 # OpenStagram
 
-This project is an Instagram clone made in Laravel and TailwindCSS. Tests are provided in [openstagram-pytest](https://github.com/maurisinho/openstagram-pytest)
+This project is an Instagram clone made in Laravel and TailwindCSS. Tests are provided in [openstagram-pytest](https://github.com/mauriciog24/openstagram-pytest)
 
 **Instructions:**
 
