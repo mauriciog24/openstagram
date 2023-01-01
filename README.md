@@ -1,10 +1,10 @@
 # OpenStagram
 
-This project is an Instagram clone made in Laravel and TailwindCSS. Tests are provided in [openstagram-pytest](https://github.com/mauriciog24/openstagram-pytest)
+This project is an Instagram clone made in Laravel and TailwindCSS.
 
 **Instructions:**
 
-First make sure you have installed PHP, Composer and MySQL
+First make sure you have installed PHP, Composer, MySQL and Node.js
 
 1. Rename the `.env.example` file to `.env`
 2. Create a database in MySQL called `openstagram`
@@ -23,7 +23,6 @@ First make sure you have installed PHP, Composer and MySQL
 <a href="#">
     <img align="left" width="30" src="https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-plain.svg" alt="TailwindCSS">
     <img align="left" width="30" src="https://github.com/devicons/devicon/blob/master/icons/laravel/laravel-plain.svg" alt="Laravel">
-    <img align="left" width="30" src="https://github.com/devicons/devicon/blob/master/icons/composer/composer-original.svg" alt="Composer">
     <img align="left" width="30" src="https://github.com/devicons/devicon/blob/master/icons/php/php-original.svg" alt="PHP">
     <img align="left" width="30" src="https://github.com/devicons/devicon/blob/master/icons/mysql/mysql-original.svg" alt="MySQL">
 </a>
